@@ -35,11 +35,11 @@
                         }
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.6s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'slide-left': 'slideLeft 0.6s ease-out',
-                        'slide-right': 'slideRight 0.6s ease-out',
-                        'scale': 'scale 0.3s ease-out',
+                        'fade-in': 'fadeIn 0.7s ease-in-out',
+                        'slide-up': 'slideUp 0.7s ease-out',
+                        'slide-left': 'slideLeft 0.7s ease-out',
+                        'slide-right': 'slideRight 0.7s ease-out',
+                        'scale': 'scale 0.7s ease-out',
                         'bounce': 'bounce 1s infinite'
                     },
                     keyframes: {
@@ -48,15 +48,15 @@
                             '100%': { opacity: '1' }
                         },
                         slideUp: {
-                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
                             '100%': { transform: 'translateY(0)', opacity: '1' }
                         },
                         slideLeft: {
-                            '0%': { transform: 'translateX(-30px)', opacity: '0' },
+                            '0%': { transform: 'translateX(-40px)', opacity: '0' },
                             '100%': { transform: 'translateX(0)', opacity: '1' }
                         },
                         slideRight: {
-                            '0%': { transform: 'translateX(30px)', opacity: '0' },
+                            '0%': { transform: 'translateX(40px)', opacity: '0' },
                             '100%': { transform: 'translateX(0)', opacity: '1' }
                         },
                         scale: {
@@ -78,45 +78,85 @@
     
     <style>
         .vantyx-gradient {
-            background: linear-gradient(135deg, #1D3557 0%, #2A4A73 100%);
+            background: linear-gradient(to right, #1d3557, #2a4a73);
+            color: white;
         }
         .vantyx-btn-primary {
-            background: linear-gradient(135deg, #F4A261 0%, #E08C4C 100%);
+            background-color: #1d3557;
+            color: white;
             transition: all 0.3s ease;
         }
         .vantyx-btn-primary:hover {
+            background-color: #152a45;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(244, 162, 97, 0.4);
+            box-shadow: 0 10px 25px rgba(29, 53, 87, 0.3);
+        }
+        .vantyx-btn-secondary {
+            background-color: #f4a261;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        .vantyx-btn-secondary:hover {
+            background-color: #e08c4c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(244, 162, 97, 0.3);
         }
         .vantyx-btn-outline {
-            border: 2px solid #1D3557;
-            color: #1D3557;
+            border: 1px solid #1d3557;
+            color: #1d3557;
             transition: all 0.3s ease;
         }
         .vantyx-btn-outline:hover {
-            background: #1D3557;
-            color: white;
+            background-color: rgba(29, 53, 87, 0.1);
+            transform: translateY(-2px);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .feature-card.open {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(20px);
+            transition: all 0.7s ease;
         }
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .module-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
+        .animate-on-scroll-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.7s ease;
         }
-        .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .animate-on-scroll-left.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
-        .module-card.open {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        .animate-on-scroll-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.7s ease;
+        }
+        .animate-on-scroll-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .animate-on-scroll-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.7s ease;
+        }
+        .animate-on-scroll-scale.visible {
+            opacity: 1;
+            transform: scale(1);
         }
     </style>
 </head>
@@ -125,16 +165,16 @@
     <nav class="sticky top-0 z-50 py-4 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
             <div class="flex items-center">
-                <img src="logo-vantyx.png" alt="Vantyx" class="h-12 w-auto">
+                <img src="logo-vantyx.png" alt="Vantyx Soluciones" class="h-12 w-auto">
             </div>
             <div class="hidden md:flex space-x-8">
-                <a href="#modulos" class="text-vantyx-primary hover:text-vantyx-secondary transition-colors font-medium">Módulos</a>
-                <a href="#sectores" class="text-vantyx-primary hover:text-vantyx-secondary transition-colors font-medium">Sectores</a>
-                <a href="#precios" class="text-vantyx-primary hover:text-vantyx-secondary transition-colors font-medium">Precios</a>
-                <a href="#contacto" class="text-vantyx-primary hover:text-vantyx-secondary transition-colors font-medium">Contacto</a>
+                <a href="#modulos" class="text-[#1D3557] hover:text-[#F4A261] transition-colors font-medium">Módulos</a>
+                <a href="#sectores" class="text-[#1D3557] hover:text-[#F4A261] transition-colors font-medium">Sectores</a>
+                <a href="#precios" class="text-[#1D3557] hover:text-[#F4A261] transition-colors font-medium">Precios</a>
+                <a href="#contacto" class="text-[#1D3557] hover:text-[#F4A261] transition-colors font-medium">Contacto</a>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="https://wa.me/543794601984" target="_blank" rel="noopener noreferrer" class="vantyx-btn-primary text-gray-800 px-6 py-2 rounded-lg font-medium shadow-lg">
+                <a href="https://wa.me/543794601984" target="_blank" rel="noopener noreferrer" class="vantyx-btn-primary px-6 py-2 rounded-lg font-medium shadow-lg">
                     Solicitar Demo
                 </a>
             </div>
@@ -146,13 +186,13 @@
         <section class="py-20 md:py-32 bg-gradient-to-br from-white via-gray-50 to-gray-100">
             <div class="container mx-auto px-4 md:px-6 text-center">
                 <div class="animate-on-scroll">
-                    <h1 class="text-5xl md:text-7xl font-bold text-vantyx-primary mb-8 leading-tight">
+                    <h1 class="text-5xl md:text-7xl font-bold text-[#1D3557] mb-8 leading-tight">
                         Todo tu negocio en <span class="relative inline-block">
                             <span class="relative z-10">una sola plataforma</span>
-                            <span class="absolute -inset-2 bg-gradient-to-r from-vantyx-secondary to-vantyx-accent -skew-y-3 z-0 rounded-lg shadow-lg"></span>
+                            <span class="absolute -inset-2 bg-gradient-to-r from-[#F4A261] to-[#E08C4C] -skew-y-3 z-0 rounded-lg shadow-lg"></span>
                         </span>
                     </h1>
-                    <p class="text-xl md:text-2xl text-vantyx-primary mb-12 max-w-4xl mx-auto font-medium">
+                    <p class="text-xl md:text-2xl text-[#1D3557] mb-12 max-w-4xl mx-auto font-medium">
                         Sistema de gestión ERP/CRM completo para pymes argentinas. Facturación electrónica, CRM, inventario y más.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
@@ -165,15 +205,15 @@
                     </div>
                     <div class="flex justify-center items-center space-x-8 text-sm text-gray-600">
                         <div class="flex items-center">
-                            <span class="text-vantyx-secondary mr-2">✓</span>
+                            <span class="text-[#F4A261] mr-2">✓</span>
                             <span>Facturación Electrónica AFIP</span>
                         </div>
                         <div class="flex items-center">
-                            <span class="text-vantyx-secondary mr-2">✓</span>
+                            <span class="text-[#F4A261] mr-2">✓</span>
                             <span>CRM Completo</span>
                         </div>
                         <div class="flex items-center">
-                            <span class="text-vantyx-secondary mr-2">✓</span>
+                            <span class="text-[#F4A261] mr-2">✓</span>
                             <span>Gestión de Inventario</span>
                         </div>
                     </div>
@@ -182,14 +222,14 @@
         </section>
 
         <!-- Dashboard Preview -->
-        <section class="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
+        <section class="py-16 bg-gradient-to-r from-[#F7F7F7] to-[#F0F0F0]">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="animate-on-scroll text-center mb-8">
-                    <h2 class="text-3xl font-bold text-vantyx-primary mb-4">Dashboard Intuitivo y Moderno</h2>
+                    <h2 class="text-3xl font-bold text-[#1D3557] mb-4">Dashboard Intuitivo y Moderno</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Interfaz limpia y fácil de usar que te permite gestionar tu negocio de manera eficiente</p>
                 </div>
                 <div class="animate-on-scroll bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
-                    <img src="dashboard-vantyx.png" alt="Vantyx Dashboard" class="w-full h-auto">
+                    <img src="dashboard-vantyx.png" alt="Vantyx Dashboard - Sistema de gestión ERP/CRM" class="w-full h-auto">
                 </div>
             </div>
         </section>
@@ -198,51 +238,94 @@
         <section id="modulos" class="py-20 bg-white">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="animate-on-scroll text-center mb-16">
-                    <h2 class="text-4xl font-bold text-vantyx-primary mb-6">Todos los Módulos que necesitas</h2>
+                    <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Todos los Módulos que necesitas</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Nuestro sistema de gestión está diseñado para adaptarse a las necesidades específicas de las PyMEs argentinas.
+                        Nuestro sistema de gestión está diseñado para adaptarse a las necesidades específicas de las PyMEs argentinas. Cada módulo está optimizado para tu sector.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
-                    <div class="module-card bg-gray-50 p-6 rounded-lg text-center" onclick="toggleModule(this)">
-                        <div class="text-vantyx-secondary mb-4 text-3xl">📊</div>
-                        <h3 class="font-semibold text-vantyx-primary">Contabilidad</h3>
-                        <div class="module-description hidden mt-2 text-sm text-gray-600">
+                    <div class="feature-card bg-white p-4 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300" onclick="toggleModule(this)">
+                        <div class="text-[#1D3557] mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-medium text-[#1D3557] mb-2">Contabilidad</h3>
+                        <div class="flex items-center justify-center mt-2">
+                            <div class="text-[#F4A261] chevron-down">▼</div>
+                        </div>
+                        <div class="module-description hidden mt-2 text-xs text-gray-600">
                             Control total de ingresos, egresos, impuestos y balances contables.
                         </div>
                     </div>
-                    <div class="module-card bg-gray-50 p-6 rounded-lg text-center" onclick="toggleModule(this)">
-                        <div class="text-vantyx-secondary mb-4 text-3xl">👥</div>
-                        <h3 class="font-semibold text-vantyx-primary">CRM</h3>
-                        <div class="module-description hidden mt-2 text-sm text-gray-600">
+                    <div class="feature-card bg-white p-4 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300" onclick="toggleModule(this)">
+                        <div class="text-[#1D3557] mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-medium text-[#1D3557] mb-2">CRM</h3>
+                        <div class="flex items-center justify-center mt-2">
+                            <div class="text-[#F4A261] chevron-down">▼</div>
+                        </div>
+                        <div class="module-description hidden mt-2 text-xs text-gray-600">
                             Gestión de clientes y oportunidades de venta, con seguimiento de interacciones.
                         </div>
                     </div>
-                    <div class="module-card bg-gray-50 p-6 rounded-lg text-center" onclick="toggleModule(this)">
-                        <div class="text-vantyx-secondary mb-4 text-3xl">📦</div>
-                        <h3 class="font-semibold text-vantyx-primary">Inventario</h3>
-                        <div class="module-description hidden mt-2 text-sm text-gray-600">
+                    <div class="feature-card bg-white p-4 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300" onclick="toggleModule(this)">
+                        <div class="text-[#1D3557] mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-medium text-[#1D3557] mb-2">Inventario</h3>
+                        <div class="flex items-center justify-center mt-2">
+                            <div class="text-[#F4A261] chevron-down">▼</div>
+                        </div>
+                        <div class="module-description hidden mt-2 text-xs text-gray-600">
                             Administración de stock en tiempo real con alertas por niveles mínimos.
                         </div>
                     </div>
-                    <div class="module-card bg-gray-50 p-6 rounded-lg text-center" onclick="toggleModule(this)">
-                        <div class="text-vantyx-secondary mb-4 text-3xl">🧾</div>
-                        <h3 class="font-semibold text-vantyx-primary">Facturación</h3>
-                        <div class="module-description hidden mt-2 text-sm text-gray-600">
+                    <div class="feature-card bg-white p-4 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300" onclick="toggleModule(this)">
+                        <div class="text-[#1D3557] mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-medium text-[#1D3557] mb-2">Facturación</h3>
+                        <div class="flex items-center justify-center mt-2">
+                            <div class="text-[#F4A261] chevron-down">▼</div>
+                        </div>
+                        <div class="module-description hidden mt-2 text-xs text-gray-600">
                             Emisión de facturas electrónicas AFIP tipo A, B y C con control fiscal.
                         </div>
                     </div>
-                    <div class="module-card bg-gray-50 p-6 rounded-lg text-center" onclick="toggleModule(this)">
-                        <div class="text-vantyx-secondary mb-4 text-3xl">📈</div>
-                        <h3 class="font-semibold text-vantyx-primary">Reportes</h3>
-                        <div class="module-description hidden mt-2 text-sm text-gray-600">
+                    <div class="feature-card bg-white p-4 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300" onclick="toggleModule(this)">
+                        <div class="text-[#1D3557] mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-medium text-[#1D3557] mb-2">Reportes</h3>
+                        <div class="flex items-center justify-center mt-2">
+                            <div class="text-[#F4A261] chevron-down">▼</div>
+                        </div>
+                        <div class="module-description hidden mt-2 text-xs text-gray-600">
                             Informes personalizados de ventas, compras, finanzas y desempeño.
                         </div>
                     </div>
-                    <div class="module-card bg-gray-50 p-6 rounded-lg text-center" onclick="toggleModule(this)">
-                        <div class="text-vantyx-secondary mb-4 text-3xl">📱</div>
-                        <h3 class="font-semibold text-vantyx-primary">Móvil</h3>
-                        <div class="module-description hidden mt-2 text-sm text-gray-600">
+                    <div class="feature-card bg-white p-4 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300" onclick="toggleModule(this)">
+                        <div class="text-[#1D3557] mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-medium text-[#1D3557] mb-2">Móvil</h3>
+                        <div class="flex items-center justify-center mt-2">
+                            <div class="text-[#F4A261] chevron-down">▼</div>
+                        </div>
+                        <div class="module-description hidden mt-2 text-xs text-gray-600">
                             Acceso desde celulares para operar el sistema desde cualquier lugar.
                         </div>
                     </div>
@@ -251,34 +334,41 @@
         </section>
 
         <!-- Facturación Electrónica -->
-        <section class="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
+        <section class="py-20 bg-gradient-to-r from-[#F7F7F7] to-[#F0F0F0]">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="animate-on-scroll rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="fc-electronica.jpeg" alt="Facturación Electrónica AFIP" class="w-full h-auto">
+                    <div class="animate-on-scroll-left rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="fc-electronica.jpeg" alt="Facturación Electrónica AFIP - Vantyx" class="w-full h-auto">
                     </div>
-                    <div class="animate-on-scroll">
-                        <h2 class="text-4xl font-bold text-vantyx-primary mb-6">Facturación Electrónica AFIP</h2>
+                    <div class="animate-on-scroll-right">
+                        <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Facturación Electrónica AFIP</h2>
                         <p class="text-lg text-gray-600 mb-8">
-                            Genera facturas electrónicas de forma rápida y sencilla, cumpliendo con todos los requisitos de AFIP.
-                            Automatiza el proceso de facturación y ahorra tiempo valioso para tu negocio.
+                            Genera facturas electrónicas de forma rápida y sencilla, cumpliendo con todos los requisitos de AFIP. Automatiza el proceso de facturación y ahorra tiempo valioso para tu negocio.
                         </p>
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-start">
-                                <span class="text-vantyx-secondary mr-3 mt-0.5">✓</span>
-                                <span class="text-vantyx-primary text-lg">Integración completa con AFIP</span>
+                                <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                <span class="text-[#1D3557] text-lg">Integración completa con AFIP</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-vantyx-secondary mr-3 mt-0.5">✓</span>
-                                <span class="text-vantyx-primary text-lg">Generación de facturas A, B, C y E</span>
+                                <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                <span class="text-[#1D3557] text-lg">Generación de facturas A, B, C y E</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-vantyx-secondary mr-3 mt-0.5">✓</span>
-                                <span class="text-vantyx-primary text-lg">Notas de crédito y débito</span>
+                                <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                <span class="text-[#1D3557] text-lg">Notas de crédito y débito</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-vantyx-secondary mr-3 mt-0.5">✓</span>
-                                <span class="text-vantyx-primary text-lg">Envío automático por email</span>
+                                <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                <span class="text-[#1D3557] text-lg">Envío automático por email</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                <span class="text-[#1D3557] text-lg">Reportes de facturación detallados</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                <span class="text-[#1D3557] text-lg">Cumplimiento fiscal garantizado</span>
                             </li>
                         </ul>
                         <button onclick="scrollToSection('contacto')" class="vantyx-btn-primary px-8 py-3 text-lg font-semibold shadow-lg rounded-lg">
@@ -289,44 +379,100 @@
             </div>
         </section>
 
+        <!-- Gestión de Clientes (CRM) -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="flex flex-col items-center">
+                    <div class="animate-on-scroll-left w-full max-w-5xl">
+                        <div class="mb-12 flex justify-center">
+                            <div class="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                                <img src="modulo-clientes.png" alt="Módulo de Gestión de Clientes CRM - Vantyx" class="w-full h-auto">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Gestión de Clientes (CRM)</h2>
+                            <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+                                Centraliza toda la información de tus clientes y potenciales. Realiza un seguimiento efectivo de tus oportunidades de venta y mejora la relación con tus clientes.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                        <span class="text-[#1D3557] text-lg">Seguimiento de oportunidades</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                        <span class="text-[#1D3557] text-lg">Historial completo de interacciones</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                        <span class="text-[#1D3557] text-lg">Gestión de campañas de marketing</span>
+                                    </li>
+                                </ul>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                        <span class="text-[#1D3557] text-lg">Segmentación de clientes</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                        <span class="text-[#1D3557] text-lg">Reportes y análisis de ventas</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#F4A261] mr-3 mt-0.5">✓</span>
+                                        <span class="text-[#1D3557] text-lg">Automatización de seguimientos</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-10">
+                                <button onclick="scrollToSection('contacto')" class="vantyx-btn-primary px-8 py-3 text-lg font-semibold shadow-lg rounded-lg">
+                                    Solicitar Demo Gratis
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Sectores -->
-        <section id="sectores" class="py-20 bg-white">
+        <section id="sectores" class="py-20 bg-gradient-to-r from-[#F7F7F7] to-[#F0F0F0]">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="animate-on-scroll text-center mb-16">
-                    <h2 class="text-4xl font-bold text-vantyx-primary mb-6">Soluciones para todos los sectores</h2>
+                    <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Soluciones para todos los sectores</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Nuestro sistema se adapta a las necesidades específicas de diferentes industrias.
+                        Nuestro sistema se adapta a las necesidades específicas de diferentes industrias. Cada sector tiene sus particularidades y nosotros las entendemos.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🛒</div>
-                        <h3 class="text-xl font-semibold text-vantyx-primary mb-3">Comercio</h3>
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-3">Comercio</h3>
                         <p class="text-gray-600">Gestión de inventario, punto de venta, facturación electrónica y fidelización de clientes.</p>
                     </div>
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🚜</div>
-                        <h3 class="text-xl font-semibold text-vantyx-primary mb-3">Agropecuario</h3>
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-3">Agropecuario</h3>
                         <p class="text-gray-600">Control de producción, gestión de campos, seguimiento de ganado y cosechas, facturación.</p>
                     </div>
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🔧</div>
-                        <h3 class="text-xl font-semibold text-vantyx-primary mb-3">Servicios</h3>
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-3">Servicios</h3>
                         <p class="text-gray-600">Gestión de proyectos, facturación por horas, seguimiento de tareas y control de gastos.</p>
                     </div>
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🏭</div>
-                        <h3 class="text-xl font-semibold text-vantyx-primary mb-3">Manufactura</h3>
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-3">Manufactura</h3>
                         <p class="text-gray-600">Control de producción, gestión de materias primas, seguimiento de órdenes y costos.</p>
                     </div>
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🏗️</div>
-                        <h3 class="text-xl font-semibold text-vantyx-primary mb-3">Construcción</h3>
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-3">Construcción</h3>
                         <p class="text-gray-600">Gestión de obras, presupuestos, control de materiales, seguimiento de avances y facturación.</p>
                     </div>
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🏥</div>
-                        <h3 class="text-xl font-semibold text-vantyx-primary mb-3">Salud</h3>
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-3">Salud</h3>
                         <p class="text-gray-600">Gestión de pacientes, turnos, historias clínicas, facturación a obras sociales y reportes.</p>
                     </div>
                 </div>
@@ -334,49 +480,36 @@
         </section>
 
         <!-- Vantyx Visual -->
-        <section class="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
+        <section class="py-20 bg-white">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="animate-on-scroll">
-                        <h2 class="text-4xl font-bold text-vantyx-primary mb-4">Vantyx Visual</h2>
-                        <h3 class="text-2xl text-vantyx-primary mb-6">Impulsá tu marca con identidad propia</h3>
+                    <div class="animate-on-scroll-left">
+                        <h2 class="text-4xl font-bold text-[#1D3557] mb-4">Vantyx Visual</h2>
+                        <h3 class="text-2xl text-[#1D3557] mb-6">Impulsá tu marca con identidad propia</h3>
                         <p class="text-lg text-gray-600 mb-8">
-                            En Vantyx no solo te damos el sistema para gestionar tu negocio, también te ayudamos a mostrarlo al mundo.
-                            Con Vantyx Visual accedés a uniformes personalizados con tu logo y bolsas de friselina diseñadas a medida.
+                            En Vantyx no solo te damos el sistema para gestionar tu negocio, también te ayudamos a mostrarlo al mundo. Con Vantyx Visual accedés a uniformes personalizados con tu logo (estampados o bordados) y bolsas de friselina diseñadas a medida para tu emprendimiento. Ideal para fortalecer tu imagen comercial desde el primer día.
                         </p>
                         <div class="space-y-4 mb-8">
                             <div class="flex items-center">
-                                <span class="text-vantyx-secondary mr-3">✓</span>
-                                <span class="text-vantyx-primary text-lg">Uniformes personalizados</span>
+                                <span class="text-[#F4A261] mr-3">✓</span>
+                                <span class="text-[#1D3557] text-lg">Uniformes personalizados</span>
                             </div>
                             <div class="flex items-center">
-                                <span class="text-vantyx-secondary mr-3">✓</span>
-                                <span class="text-vantyx-primary text-lg">Bolsas de friselina ecológicas</span>
+                                <span class="text-[#F4A261] mr-3">✓</span>
+                                <span class="text-[#1D3557] text-lg">Bolsas de friselina ecológicas</span>
                             </div>
                             <div class="flex items-center">
-                                <span class="text-vantyx-secondary mr-3">✓</span>
-                                <span class="text-vantyx-primary text-lg">Diseño profesional de marca</span>
+                                <span class="text-[#F4A261] mr-3">✓</span>
+                                <span class="text-[#1D3557] text-lg">Diseño profesional de marca</span>
                             </div>
                         </div>
                         <button onclick="scrollToSection('contacto')" class="vantyx-btn-primary px-8 py-3 text-lg font-semibold shadow-lg rounded-lg">
                             Quiero mi identidad visual
                         </button>
                     </div>
-                    <div class="animate-on-scroll">
-                        <div class="bg-white p-8 rounded-2xl shadow-2xl text-center">
-                            <div class="text-6xl mb-4">🎨</div>
-                            <h4 class="text-xl font-semibold text-vantyx-primary mb-4">Diseño Personalizado</h4>
-                            <p class="text-gray-600 mb-6">Creamos la identidad visual perfecta para tu negocio</p>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <div class="text-2xl mb-2">👕</div>
-                                    <p class="text-sm font-medium">Uniformes</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <div class="text-2xl mb-2">🛍️</div>
-                                    <p class="text-sm font-medium">Bolsas</p>
-                                </div>
-                            </div>
+                    <div class="animate-on-scroll-right">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                            <img src="vantyx-visual-bolsas-marcas.png" alt="Vantyx Visual - Bolsas y uniformes personalizados para negocios" class="w-full h-auto rounded-2xl">
                         </div>
                     </div>
                 </div>
@@ -384,80 +517,138 @@
         </section>
 
         <!-- Precios -->
-        <section id="precios" class="py-20 bg-white">
+        <section id="precios" class="py-20 bg-gradient-to-r from-[#F7F7F7] to-[#F0F0F0]">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="animate-on-scroll text-center mb-16">
-                    <h2 class="text-4xl font-bold text-vantyx-primary mb-6">Planes simples y transparentes</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Elige el plan que mejor se adapte a las necesidades de tu empresa.</p>
+                    <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Planes simples y transparentes</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Elige el plan que mejor se adapte a las necesidades de tu empresa. Sin costos ocultos, sin sorpresas.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div class="animate-on-scroll bg-white p-8 rounded-lg shadow-lg border-2 border-gray-100">
-                        <h3 class="text-2xl font-bold text-vantyx-primary mb-2">Básico</h3>
-                        <div class="text-4xl font-bold text-vantyx-secondary mb-4">$30.000</div>
-                        <p class="text-gray-600 mb-6">Ideal para emprendedores y pequeñas empresas.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-[#1D3557] mb-2">Básico</h3>
+                        <div class="text-4xl font-bold text-[#F4A261] mb-4">$30.000</div>
+                        <p class="text-gray-600 mb-6">Ideal para emprendedores y pequeñas empresas que están comenzando.</p>
                         <ul class="space-y-2 mb-8">
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Catálogo de Productos</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Gestión de Stock</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Caja y Bancos</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Hasta 3 usuarios</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Catálogo y Gestión de Productos</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Gestión de Stock Básica</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Caja y Bancos</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Hasta 3 usuarios</li>
                         </ul>
                         <button class="w-full vantyx-btn-outline py-3 rounded-lg font-semibold transition-all duration-300">Contratar</button>
                     </div>
-                    <div class="animate-on-scroll bg-white p-8 rounded-lg shadow-xl border-2 border-vantyx-secondary relative">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-vantyx-secondary text-white px-4 py-1 rounded-full text-sm font-semibold">Recomendado</div>
-                        <h3 class="text-2xl font-bold text-vantyx-primary mb-2">Profesional</h3>
-                        <div class="text-4xl font-bold text-vantyx-secondary mb-4">$45.000</div>
-                        <p class="text-gray-600 mb-6">Perfecto para empresas en crecimiento.</p>
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg shadow-xl border-2 border-[#F4A261] relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#F4A261] text-white px-4 py-1 rounded-full text-sm font-semibold">Recomendado</div>
+                        <h3 class="text-2xl font-bold text-[#1D3557] mb-2">Profesional</h3>
+                        <div class="text-4xl font-bold text-[#F4A261] mb-4">$45.000</div>
+                        <p class="text-gray-600 mb-6">Perfecto para empresas en crecimiento que necesitan más funcionalidades.</p>
                         <ul class="space-y-2 mb-8">
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Todo lo del plan Básico</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Agenda y Planificación</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Gestión de Compras</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Proyectos y Tareas</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Informes Avanzados</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Todo lo del plan Básico</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Agenda y Planificación</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Gestión de Compras</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Proyectos y Tareas</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Informes Avanzados</li>
                         </ul>
                         <button class="w-full vantyx-btn-primary py-3 rounded-lg font-semibold shadow-lg">Contratar</button>
                     </div>
-                    <div class="animate-on-scroll bg-white p-8 rounded-lg shadow-lg border-2 border-gray-100">
-                        <h3 class="text-2xl font-bold text-vantyx-primary mb-2">Empresarial</h3>
-                        <div class="text-4xl font-bold text-vantyx-secondary mb-4">$70.000</div>
-                        <p class="text-gray-600 mb-6">Para empresas establecidas.</p>
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-[#1D3557] mb-2">Empresarial</h3>
+                        <div class="text-4xl font-bold text-[#F4A261] mb-4">$70.000</div>
+                        <p class="text-gray-600 mb-6">Para empresas establecidas que requieren soluciones completas y personalizadas.</p>
                         <ul class="space-y-2 mb-8">
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Todo lo del plan Profesional</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Múltiples Sucursales</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> RRHH y Nómina</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Contabilidad Completa</li>
-                            <li class="flex items-center"><span class="text-vantyx-secondary mr-2">✓</span> Business Intelligence</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Todo lo del plan Profesional</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Múltiples Sucursales</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> RRHH y Nómina</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Contabilidad Completa</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Business Intelligence</li>
                         </ul>
                         <button class="w-full vantyx-btn-outline py-3 rounded-lg font-semibold transition-all duration-300">Contratar</button>
+                    </div>
+                    <div class="animate-on-scroll-scale bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-[#1D3557] mb-2">Vantyx Visual</h3>
+                        <div class="text-4xl font-bold text-[#F4A261] mb-4">Consultar</div>
+                        <p class="text-gray-600 mb-6">Uniformes y bolsas personalizadas con el logo de tu negocio.</p>
+                        <ul class="space-y-2 mb-8">
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Estampado en serigrafía o bordado</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Diseño profesional de marca</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Bolsas de friselina ecológicas</li>
+                            <li class="flex items-center"><span class="text-[#F4A261] mr-2">✓</span> Entrega rápida y asesoramiento incluido</li>
+                        </ul>
+                        <button class="w-full vantyx-btn-outline py-3 rounded-lg font-semibold transition-all duration-300">Quiero este plan</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section id="testimonios" class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="animate-on-scroll text-center mb-16">
+                    <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Lo que dicen nuestros clientes</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Empresas de diversos sectores confían en Vantyx para optimizar sus operaciones. Nuestros clientes son nuestra mejor referencia.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="animate-on-scroll-scale bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="luisa_fernandez.png" alt="Testimonio de Luisa Fernández de Acme S.A." class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="font-semibold text-[#1D3557] mb-2">Luisa Fernández</h4>
+                        <p class="text-sm text-gray-600 mb-2">Acme S.A.</p>
+                        <p class="text-gray-600">"Vantyx transformó completamente nuestra gestión. Ahora tenemos todo bajo control y hemos aumentado nuestra eficiencia un 40%."</p>
+                    </div>
+                    <div class="animate-on-scroll-scale bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="martin_gonzalez.png" alt="Testimonio de Martín González de TechNow" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="font-semibold text-[#1D3557] mb-2">Martín González</h4>
+                        <p class="text-sm text-gray-600 mb-2">TechNow</p>
+                        <p class="text-gray-600">"La facturación electrónica es súper fácil. Ya no perdemos tiempo con trámites y todo está automatizado."</p>
+                    </div>
+                    <div class="animate-on-scroll-scale bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="carolina_lopez.png" alt="Testimonio de Carolina López de Grupo Eiite" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="font-semibold text-[#1D3557] mb-2">Carolina López</h4>
+                        <p class="text-sm text-gray-600 mb-2">Grupo Eiite</p>
+                        <p class="text-gray-600">"El soporte es excelente. Siempre están disponibles para ayudarnos y resolver cualquier duda rápidamente."</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
+        <section id="faq" class="py-20 bg-gradient-to-r from-[#F7F7F7] to-[#F0F0F0]">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="animate-on-scroll text-center mb-16">
-                    <h2 class="text-4xl font-bold text-vantyx-primary mb-6">Preguntas Frecuentes</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Resolvemos tus dudas sobre Vantyx para que puedas tomar la mejor decisión.</p>
+                    <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Preguntas Frecuentes</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Resolvemos tus dudas sobre Vantyx para que puedas tomar la mejor decisión para tu negocio. Si no encuentras tu respuesta, contáctanos directamente.
+                    </p>
                 </div>
                 <div class="max-w-4xl mx-auto">
                     <div class="space-y-4">
                         <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-lg font-semibold text-vantyx-primary mb-2">¿Qué tipo de empresas pueden usar Vantyx?</h3>
+                            <h3 class="text-lg font-semibold text-[#1D3557] mb-2">¿Qué tipo de empresas pueden usar Vantyx?</h3>
                             <p class="text-gray-600">Vantyx está diseñado especialmente para pymes y emprendimientos de distintos rubros: comercio, servicios, agro, talleres, entre otros.</p>
                         </div>
                         <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-lg font-semibold text-vantyx-primary mb-2">¿Necesito conocimientos técnicos para usar el sistema?</h3>
+                            <h3 class="text-lg font-semibold text-[#1D3557] mb-2">¿Necesito conocimientos técnicos para usar el sistema?</h3>
                             <p class="text-gray-600">No. Vantyx es intuitivo, fácil de usar y con una curva de aprendizaje rápida.</p>
                         </div>
                         <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-lg font-semibold text-vantyx-primary mb-2">¿Puedo emitir facturas electrónicas con Vantyx?</h3>
+                            <h3 class="text-lg font-semibold text-[#1D3557] mb-2">¿Puedo emitir facturas electrónicas con Vantyx?</h3>
                             <p class="text-gray-600">Sí. Vantyx está integrado con ARCA (ex AFIP) y permite emitir facturas electrónicas desde el sistema.</p>
                         </div>
                         <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-lg font-semibold text-vantyx-primary mb-2">¿Qué pasa si tengo un problema o duda usando el sistema?</h3>
+                            <h3 class="text-lg font-semibold text-[#1D3557] mb-2">¿Qué pasa si tengo un problema o duda usando el sistema?</h3>
                             <p class="text-gray-600">Contamos con soporte técnico por WhatsApp y mail. Te ayudamos a resolverlo lo antes posible.</p>
+                        </div>
+                        <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-[#1D3557] mb-2">¿Cómo se actualiza el sistema? ¿Tengo que hacer algo?</h3>
+                            <p class="text-gray-600">Las actualizaciones se realizan automáticamente. Siempre vas a tener la última versión disponible.</p>
+                        </div>
+                        <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-[#1D3557] mb-2">¿Puedo migrar mis datos desde otro sistema?</h3>
+                            <p class="text-gray-600">Sí. Podemos ayudarte a importar productos, clientes y otros datos desde tu sistema anterior.</p>
+                        </div>
+                        <div class="animate-on-scroll bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-[#1D3557] mb-2">¿Cuáles son las formas de pago disponibles?</h3>
+                            <p class="text-gray-600">Podés pagar con transferencia, Mercado Pago o efectivo y también aceptaremos tarjetas.</p>
                         </div>
                     </div>
                 </div>
@@ -468,65 +659,90 @@
         <section id="contacto" class="py-20 bg-white">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="animate-on-scroll text-center mb-16">
-                    <h2 class="text-4xl font-bold text-vantyx-primary mb-6">Contáctanos</h2>
+                    <h2 class="text-4xl font-bold text-[#1D3557] mb-6">Contáctanos</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Estamos listos para ayudarte a optimizar tus procesos y aumentar tu rentabilidad.
+                        Estamos listos para ayudarte a optimizar tus procesos y aumentar tu rentabilidad. Solicita tu demo gratuita hoy mismo.
                     </p>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-semibold text-vantyx-primary mb-6">Información de contacto</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="animate-on-scroll-left bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-4">Información de contacto</h3>
                         <div class="space-y-4">
-                            <div class="flex items-center">
-                                <span class="text-vantyx-secondary mr-3 text-xl">📞</span>
+                            <div class="flex items-start">
+                                <span class="text-[#1D3557] mt-1 mr-3">📞</span>
                                 <div>
-                                    <h4 class="font-medium text-vantyx-primary">Teléfono</h4>
+                                    <h4 class="font-medium text-[#1D3557]">Teléfono</h4>
                                     <p class="text-gray-600">+54 379 4601984</p>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <span class="text-vantyx-secondary mr-3 text-xl">✉️</span>
+                            <div class="flex items-start">
+                                <span class="text-[#1D3557] mt-1 mr-3">✉️</span>
                                 <div>
-                                    <h4 class="font-medium text-vantyx-primary">Email</h4>
+                                    <h4 class="font-medium text-[#1D3557]">Email</h4>
                                     <p class="text-gray-600">contacto@vantyx.net</p>
                                 </div>
                             </div>
-                            <div class="mt-6">
-                                <h4 class="font-medium text-vantyx-primary mb-3">Horario de atención</h4>
-                                <p class="text-gray-600">Lunes a Viernes: 9:00 - 18:00</p>
-                                <p class="text-gray-600">Sábados: 9:00 - 13:00</p>
-                            </div>
-                            <div class="mt-6">
-                                <h4 class="font-medium text-vantyx-primary mb-3">Síguenos en redes sociales</h4>
-                                <div class="flex space-x-4">
-                                    <a href="https://www.facebook.com/vantyx.ar" target="_blank" class="text-vantyx-primary hover:text-vantyx-secondary transition-colors">
-                                        <span class="text-2xl">📘</span>
-                                    </a>
-                                    <a href="https://www.instagram.com/vantyx.arg/" target="_blank" class="text-vantyx-primary hover:text-vantyx-secondary transition-colors">
-                                        <span class="text-2xl">📷</span>
-                                    </a>
-                                    <a href="https://www.tiktok.com/@vantyx.net" target="_blank" class="text-vantyx-primary hover:text-vantyx-secondary transition-colors">
-                                        <span class="text-2xl">🎵</span>
-                                    </a>
-                                </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-medium text-[#1D3557] mb-3">Horario de atención</h4>
+                            <p class="text-gray-600">Lunes a Viernes: 9:00 - 18:00</p>
+                            <p class="text-gray-600">Sábados: 9:00 - 13:00</p>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-medium text-[#1D3557] mb-3">Síguenos en redes sociales</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/vantyx.ar" target="_blank" class="text-[#1D3557] hover:text-[#F4A261] transition-colors">
+                                    <span class="text-2xl">📘</span>
+                                </a>
+                                <a href="https://www.instagram.com/vantyx.arg/" target="_blank" class="text-[#1D3557] hover:text-[#F4A261] transition-colors">
+                                    <span class="text-2xl">📷</span>
+                                </a>
+                                <a href="https://www.tiktok.com/@vantyx.net" target="_blank" class="text-[#1D3557] hover:text-[#F4A261] transition-colors">
+                                    <span class="text-2xl">🎵</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="animate-on-scroll bg-gray-50 p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-semibold text-vantyx-primary mb-6">WhatsApp Business</h3>
-                        <div class="text-center">
-                            <div class="bg-white p-6 rounded-lg mb-4">
-                                <div class="text-6xl mb-4">📱</div>
-                                <p class="text-gray-600 mb-4">Escanea el código QR para iniciar una conversación</p>
-                                <div class="bg-gray-200 w-32 h-32 mx-auto rounded-lg flex items-center justify-center">
-                                    <span class="text-4xl">📱</span>
-                                </div>
+                    <div class="flex justify-center">
+                        <div class="animate-on-scroll-scale bg-white p-6 rounded-lg shadow-md text-center">
+                            <h3 class="text-xl font-semibold text-[#1D3557] mb-4">WhatsApp Business</h3>
+                            <div class="bg-gray-100 w-32 h-32 mx-auto rounded-lg flex items-center justify-center mb-4">
+                                <span class="text-4xl">📱</span>
                             </div>
+                            <p class="text-gray-600 mb-4">Escanea el código QR para iniciar una conversación</p>
                             <a href="https://wa.me/543794601984" target="_blank" class="inline-block bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
                                 Abrir WhatsApp
                             </a>
                             <p class="text-sm text-gray-500 mt-2">Respondemos en menos de 30 minutos</p>
                         </div>
+                    </div>
+                    <div class="animate-on-scroll-right bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-[#1D3557] mb-4">Contáctanos</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Nombre completo" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557]">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557]">
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="Teléfono" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557]">
+                            </div>
+                            <div>
+                                <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557]">
+                                    <option>Seleccione un área de interés</option>
+                                    <option>Facturación Electrónica</option>
+                                    <option>CRM</option>
+                                    <option>Inventario</option>
+                                    <option>Contabilidad</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea placeholder="Mensaje" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557]"></textarea>
+                            </div>
+                            <button type="submit" class="w-full vantyx-btn-primary py-3 rounded-lg font-semibold">Enviar Mensaje</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -535,16 +751,16 @@
         <!-- CTA Final -->
         <section class="py-20 vantyx-gradient">
             <div class="container mx-auto px-4 md:px-6 text-center">
-                <div class="animate-on-scroll">
-                    <h2 class="text-4xl font-bold text-white mb-8">¿Listo para potenciar tu empresa?</h2>
+                <div class="animate-on-scroll-scale">
+                    <h2 class="text-4xl font-bold mb-8">¿Listo para potenciar tu empresa?</h2>
                     <p class="max-w-3xl mx-auto mb-12 text-gray-100 text-xl">
-                        Solicita una demostración gratuita y descubre cómo Vantyx puede ayudarte a optimizar tus procesos.
+                        Solicita una demostración gratuita y descubre cómo Vantyx puede ayudarte a optimizar tus procesos y aumentar tu rentabilidad. No hay compromiso, solo resultados.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-6">
-                        <button onclick="scrollToSection('contacto')" class="bg-vantyx-secondary text-gray-800 px-10 py-4 rounded-lg text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <button onclick="scrollToSection('contacto')" class="bg-[#F4A261] text-gray-800 px-10 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 rounded-lg">
                             Comienza ahora, es gratis
                         </button>
-                        <a href="https://wa.me/543794601984" target="_blank" class="bg-transparent text-white border-2 border-white hover:bg-white/10 px-10 py-4 rounded-lg text-lg font-semibold hover:shadow-xl transition-all duration-300">
+                        <a href="https://wa.me/543794601984" target="_blank" class="bg-transparent text-white border-2 border-white hover:bg-white/10 px-10 py-4 text-lg font-semibold hover:shadow-xl transition-all duration-300 rounded-lg">
                             Contactar a un Asesor
                         </a>
                     </div>
@@ -554,18 +770,28 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-vantyx-primary text-gray-300 py-16">
+    <footer class="bg-[#1D3557] text-gray-300 py-16">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex justify-center md:justify-start mb-8">
                         <img src="logo-vantyx.png" alt="Vantyx" class="h-16 w-auto">
                     </div>
                     <p class="mb-6 max-w-lg text-center md:text-left text-lg">
-                        Desarrollamos sistemas de gestión ERP/CRM para pymes, con foco en el sector agropecuario, comercial y servicios.
-                        Potenciamos tu negocio con tecnología argentina.
+                        Desarrollamos sistemas de gestión ERP/CRM para pymes, con foco en el sector agropecuario, comercial y servicios. Potenciamos tu negocio con tecnología argentina.
                     </p>
                     <p class="text-sm text-center md:text-left text-gray-400">Desarrollado en Corrientes, con visión nacional.</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Enlaces rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#modulos" class="hover:text-[#F4A261] transition-colors">Módulos</a></li>
+                        <li><a href="#sectores" class="hover:text-[#F4A261] transition-colors">Sectores</a></li>
+                        <li><a href="#precios" class="hover:text-[#F4A261] transition-colors">Precios</a></li>
+                        <li><a href="#testimonios" class="hover:text-[#F4A261] transition-colors">Testimonios</a></li>
+                        <li><a href="#faq" class="hover:text-[#F4A261] transition-colors">FAQ</a></li>
+                        <li><a href="#contacto" class="hover:text-[#F4A261] transition-colors">Contacto</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h3 class="text-white font-semibold mb-4">Contacto</h3>
@@ -606,24 +832,27 @@
         // Función para toggle de módulos
         function toggleModule(element) {
             const description = element.querySelector('.module-description');
+            const chevron = element.querySelector('.chevron-down');
             const isOpen = element.classList.contains('open');
             
             // Cerrar todos los módulos
-            document.querySelectorAll('.module-card').forEach(card => {
+            document.querySelectorAll('.feature-card').forEach(card => {
                 card.classList.remove('open');
                 card.querySelector('.module-description').classList.add('hidden');
+                card.querySelector('.chevron-down').style.transform = 'rotate(0deg)';
             });
             
             // Abrir el módulo clickeado si no estaba abierto
             if (!isOpen) {
                 element.classList.add('open');
                 description.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
             }
         }
 
         // Animaciones al hacer scroll
         function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
+            const elements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
@@ -646,16 +875,6 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
-            });
-        });
-
-        // Efecto de hover en botones
-        document.querySelectorAll('.vantyx-btn-primary, .vantyx-btn-outline').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
-            });
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
             });
         });
     </script>
