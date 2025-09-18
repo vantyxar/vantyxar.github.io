@@ -1,59 +1,98 @@
-# Vantyx Landing Page - Versión GitHub Pages
+# Vantyx Landing Page
 
-Esta es una versión optimizada de la landing page de Vantyx específicamente diseñada para funcionar perfectamente en GitHub Pages.
+Landing page para Vantyx - Sistemas de Gestión ERP/CRM para Pymes.
 
-## Características
+## 📁 Estructura del Proyecto
 
-- ✅ HTML puro con Tailwind CSS via CDN
-- ✅ Totalmente compatible con GitHub Pages
-- ✅ Responsive design
-- ✅ Optimizada para carga rápida
-- ✅ Sin dependencias de Node.js o frameworks complejos
+```
+Landing/
+├── index.html          # Página principal
+├── styles.css          # Estilos personalizados
+├── script.js           # JavaScript funcional
+├── components.html     # Componentes reutilizables
+├── README.md           # Este archivo
+└── assets/            # Imágenes y recursos
+    ├── logo-vantyx.png
+    ├── dashboard-vantyx.png
+    ├── fc-electronica.jpeg
+    ├── modulo-clientes.png
+    ├── vantyx-visual-bolsas-marcas.png
+    ├── luisa_fernandez.png
+    ├── martin_gonzalez.png
+    └── carolina_lopez.png
+```
 
-## Cómo usar
+## 🚀 Cómo subir a GitHub Pages
 
-1. **Sube todos los archivos** de esta carpeta a tu repositorio `vantyxar.github.io`
-2. **Activa GitHub Pages** en Settings > Pages
-3. **¡Listo!** Tu sitio estará disponible en `https://vantyxar.github.io/`
+### Opción 1: Subir archivos individuales
+1. Ve a tu repositorio en GitHub
+2. Haz clic en "Add file" > "Upload files"
+3. Arrastra todos los archivos de la carpeta `Landing/` a GitHub
+4. Haz commit con el mensaje: "Actualizar landing page con nueva estructura"
+5. Ve a Settings > Pages
+6. Selecciona "Deploy from a branch" > "main" > "/ (root)"
+7. Guarda y espera a que se despliegue
 
-## Archivos incluidos
+### Opción 2: Usar Git (recomendado)
+```bash
+# En la carpeta Landing/
+git add .
+git commit -m "Actualizar landing page con nueva estructura"
+git push origin main
+```
 
-- `index.html` - Página principal
-- `logo-vantyx.png` - Logo de Vantyx
-- `dashboard-vantyx.png` - Imagen del dashboard
-- `fc-electronica.jpeg` - Imagen de facturación electrónica
-- `README.md` - Este archivo
+## ✨ Características
 
-## Ventajas de esta versión
+- **Responsive Design**: Se adapta a todos los dispositivos
+- **Tema Oscuro/Claro**: Toggle funcional con persistencia
+- **Animaciones**: Scroll animations y transiciones suaves
+- **Módulos Expandibles**: Sistema de módulos interactivo
+- **FAQ Accordion**: Preguntas frecuentes expandibles
+- **Formulario de Contacto**: Integrado con Google Forms
+- **Botón WhatsApp**: Flotante y funcional
+- **SEO Optimizado**: Meta tags y estructura semántica
 
-- **Carga instantánea**: No hay build process, se carga directamente
-- **Siempre actualizada**: Los estilos se cargan desde CDN
-- **Compatible**: Funciona en cualquier hosting estático
-- **Mantenible**: Fácil de editar y actualizar
+## 🛠️ Tecnologías Utilizadas
 
-## Personalización
+- **HTML5**: Estructura semántica
+- **CSS3**: Estilos personalizados y animaciones
+- **JavaScript**: Funcionalidad interactiva
+- **Tailwind CSS**: Framework de utilidades CSS
+- **GitHub Pages**: Hosting gratuito
 
-Para personalizar colores, edita la configuración de Tailwind en el `<head>` del HTML:
+## 📱 Compatibilidad
 
-```javascript
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                vantyx: {
-                    primary: "#1D3557",    // Azul principal
-                    secondary: "#F4A261",  // Naranja principal
-                    accent: "#E08C4C"      // Naranja oscuro
-                }
-            }
-        }
-    }
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+- ✅ Dispositivos móviles
+
+## 🔧 Personalización
+
+### Cambiar colores
+Edita las variables CSS en `styles.css`:
+```css
+:root {
+    --vantyx-primary: #1D3557;
+    --vantyx-secondary: #F4A261;
+    --vantyx-accent: #E08C4C;
 }
 ```
 
-## Soporte
+### Agregar nuevos módulos
+Edita el array `modules` en `script.js` y agrega el HTML correspondiente en `components.html`.
 
-Si necesitas ayuda o quieres agregar más funcionalidades, contacta a Vantyx:
-- 📞 +54 379 4601984
-- ✉️ contacto@vantyx.net
-- 💬 WhatsApp: https://wa.me/543794601984
+### Modificar contenido
+Edita directamente los archivos HTML o usa las funciones JavaScript para contenido dinámico.
+
+## 📞 Soporte
+
+Para soporte técnico o consultas:
+- **WhatsApp**: +54 379 4601984
+- **Email**: contacto@vantyx.net
+- **GitHub**: [vantyxar](https://github.com/vantyxar)
+
+## 📄 Licencia
+
+© 2024 Vantyx. Todos los derechos reservados.

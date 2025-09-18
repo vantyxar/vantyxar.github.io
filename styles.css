@@ -1,0 +1,292 @@
+/* Vantyx Landing Page Styles */
+
+/* Tailwind CSS Base */
+@import url('https://cdn.tailwindcss.com');
+
+/* Custom CSS Variables */
+:root {
+    --vantyx-primary: #1D3557;
+    --vantyx-secondary: #F4A261;
+    --vantyx-accent: #E08C4C;
+}
+
+/* Custom Classes */
+.vantyx-gradient {
+    background: linear-gradient(to right, #1d3557, #2a4a73);
+    color: white;
+}
+
+.vantyx-btn-primary {
+    background-color: #1d3557;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.vantyx-btn-primary:hover {
+    background-color: #152a45;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(29, 53, 87, 0.3);
+}
+
+.vantyx-btn-secondary {
+    background-color: #f4a261;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.vantyx-btn-secondary:hover {
+    background-color: #e08c4c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(244, 162, 97, 0.3);
+}
+
+.vantyx-btn-outline {
+    border: 1px solid #1d3557;
+    color: #1d3557;
+    transition: all 0.3s ease;
+}
+
+.vantyx-btn-outline:hover {
+    background-color: rgba(29, 53, 87, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Feature Cards */
+.feature-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.feature-card.open {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.7s ease;
+}
+
+.animate-on-scroll-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-on-scroll-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.7s ease;
+}
+
+.animate-on-scroll-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-on-scroll-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.7s ease;
+}
+
+.animate-on-scroll-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger Animations */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.stagger-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FAQ Accordion */
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.faq-question {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer.open {
+    max-height: 500px;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* Dark Mode Styles */
+.dark {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark .bg-white {
+    background-color: #2d2d2d;
+}
+
+.dark .text-[#1D3557] {
+    color: #ffffff;
+}
+
+.dark .text-gray-600 {
+    color: #d1d5db;
+}
+
+.dark .border-gray-100 {
+    border-color: #4b5563;
+}
+
+.dark .feature-card {
+    background-color: #2d2d2d;
+    border-color: #4b5563;
+}
+
+.dark .feature-card:hover {
+    background-color: #374151;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(20px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideLeft {
+    from { 
+        transform: translateX(-40px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideRight {
+    from { 
+        transform: translateX(40px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes scale {
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--vantyx-primary), var(--vantyx-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-vantyx {
+    box-shadow: 0 10px 25px rgba(29, 53, 87, 0.15);
+}
+
+.border-vantyx {
+    border-color: var(--vantyx-primary);
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus States */
+button:focus,
+a:focus {
+    outline: 2px solid var(--vantyx-secondary);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
